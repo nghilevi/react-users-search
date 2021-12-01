@@ -1,24 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+
+import { useData } from './hooks/useData';
+import { Status } from './utils/constants';
+import UserSearch from './components/UserSearch';
 
 function App() {
+
+  const { posts, users, loadingStatus } = useData()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div>{loadingStatus === Status.Loading ? 'Loading data ...' : <UserSearch postsData={posts} usersData={users} />}</div>
     </div>
   );
 }
