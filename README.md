@@ -2,9 +2,9 @@
 A very minimal user search application
 
 ## Usage notes
-If users failed to load, the app can not be used.
+If users are failed to load, the app can not be used.
 
-If users are loaded and posts are failed to load. Users list can still be used.
+If users are loaded and posts are failed to load. Users list can still be used, but no posts will be shown.
 
 ## Implementation notes
 Below are some useful commands:
