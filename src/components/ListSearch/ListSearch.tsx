@@ -1,3 +1,4 @@
+import { ListSearchText } from '../../utils/constants'
 import './ListSearch.scss'
 
 interface ListSearchProps {
@@ -24,7 +25,7 @@ function ListSearch({ listItems, displayField, onClick, onSearch }: ListSearchPr
 
     const renderList = () => {
         if(listItems.length === 0){
-            return <>There is no items on the list</>
+            return <>{ListSearchText.Empty}</>
         }else{
             return <>
                 <input type="text" onInput={(e) => onInput(e)} />

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { filterList } from '../utils/utils';
 import './UserSearch.scss'
 import ListSearch from './ListSearch/ListSearch';
+import { UserSearchText } from '../utils/constants';
 
 interface UserSearchProps {
   postsData: any[], usersData: any[]
@@ -33,7 +34,7 @@ function UserSearch({ postsData, usersData }: UserSearchProps) {
 
   return (
     <>
-      <h1 className="app-header">Selected user id: {userId >= 1 ? userId : 'None'}</h1>
+      <h1 className="app-header">{UserSearchText.SelectedUserId} {userId >= 1 ? userId : UserSearchText.NoSelection}</h1>
       <ListSearch
         listItems={users}
         displayField='name'
@@ -47,7 +48,7 @@ function UserSearch({ postsData, usersData }: UserSearchProps) {
           onSearch={onPostSearch}
         /> :
         <div className="text-container">
-          <span className="default-text">Please select user</span>
+          <span className="default-text">{UserSearchText.SelectUser}</span>
         </div>
       }
     </>

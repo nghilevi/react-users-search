@@ -1,7 +1,7 @@
 
 
 import { useData } from './hooks/useData';
-import { Status } from './utils/constants';
+import { LoadingStatusText, Status } from './utils/constants';
 import UserSearch from './components/UserSearch';
 
 function App() {
@@ -10,14 +10,14 @@ function App() {
 
   const renderApp = () => {
     if(loadingStatus === Status.Loading){
-      return <>Loading data ...</>
+      return <>{LoadingStatusText.Loading}</>
     }else if(loadingStatus === Status.Failure){
-      return <>Data loaded failed. Please try again</>
+      return <>{LoadingStatusText.Failure}</>
     }else{
       if(users) {
         return <UserSearch postsData={posts} usersData={users} />
       }else{
-        return <>Users loaded failed. Please try again</>
+        return <>{LoadingStatusText.UsersLoadFail}</>
       }
     }
   }

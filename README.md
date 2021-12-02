@@ -1,9 +1,12 @@
 # User Search
 A very minimal user search application
 
-## Usage
-If users or posts failed to loa
-## Implementation
+## Usage notes
+If users failed to load, the app can not be used.
+
+If users are loaded and posts are failed to load. Users list can still be used.
+
+## Implementation notes
 Below are some useful commands:
 
 Getting started and running the app locally

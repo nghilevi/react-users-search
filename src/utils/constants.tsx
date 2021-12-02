@@ -12,4 +12,22 @@ enum Status {
     Failure = 'failure'
 }
 
-export { Api, Status }
+enum LoadingStatusText {
+    Loading = 'Loading data ...',
+    Failure = 'Data loaded failed. Please try again',
+    UsersLoadFail = 'Users loaded failed. Please try again'
+}
+
+enum UserSearchText {
+    SelectedUserId = 'Selected user id:',
+    SelectUser = 'Please select user',
+    NoSelection = 'None'
+}
+
+enum ListSearchText {
+    Empty = 'There is no items on the list'
+}
+
+
+
+export { Api, Status, UserSearchText, ListSearchText, LoadingStatusText }
