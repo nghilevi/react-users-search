@@ -24,14 +24,15 @@ function ListSearch({ listItems, displayField, onClick, onSearch }: ListSearchPr
     }
 
     const renderList = () => {
-        if(listItems.length === 0){
+
+        if (!listItems) {
             return <>{ListSearchText.Empty}</>
-        }else{
+        } else {
             return <>
                 <input type="text" onInput={(e) => onInput(e)} />
                 <ul className="items-list">
                     {
-                         
+
                         listItems
                             .map((item, key: number) =>
                                 <li key={key} onClick={(e) => { onItemClick(item) }}>
@@ -39,14 +40,14 @@ function ListSearch({ listItems, displayField, onClick, onSearch }: ListSearchPr
                                 </li>
                             )
                     }
-                </ul> 
+                </ul>
             </>
         }
     }
 
     return (
         <div className="list-search">
-            { renderList() }
+            {renderList()}
         </div>
     );
 }

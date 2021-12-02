@@ -11,20 +11,24 @@ interface UserSearchProps {
 function UserSearch({ postsData, usersData }: UserSearchProps) {
 
   const [userId, setUserId] = useState<number>(-1)
-  const [users, setUsers] = useState<any[]>(usersData || [])
-  const [posts, setPosts] = useState<any[]>(postsData || [])
+  const [users, setUsers] = useState<any[]>(usersData)
+  const [posts, setPosts] = useState<any[]>(postsData)
   const [postsByUser, setPostsByUser] = useState<any[]>([])
 
   const onUserClicked = (item: any) => {
     const filteredPosts = filterList(postsData, 'userId', item.id)
     setUserId(item.id)
-    setPosts(filteredPosts)
     setPostsByUser(filteredPosts)
+    if (postsData) {
+      setPosts(filteredPosts)
+    }
   }
 
   const onUserSearch = (filterString: string) => {
-    const filteredUsers = filterList(usersData, 'name', filterString)
-    setUsers(filteredUsers)
+    if (usersData) {
+      const filteredUsers = filterList(usersData, 'name', filterString)
+      setUsers(filteredUsers)
+    }
   }
 
   const onPostSearch = (filterString: string) => {
