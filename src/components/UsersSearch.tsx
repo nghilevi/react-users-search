@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { filterList } from '../utils/utils';
-import './UserSearch.scss'
+import './UsersSearch.scss'
 import ListSearch from './ListSearch/ListSearch';
-import { UserSearchText } from '../utils/constants';
+import { UsersSearchText } from '../utils/constants';
 
-interface UserSearchProps {
+interface UsersSearchProps {
   postsData: any[], usersData: any[]
 }
 
-function UserSearch({ postsData, usersData }: UserSearchProps) {
+function UsersSearch({ postsData, usersData }: UsersSearchProps) {
 
   const [userId, setUserId] = useState<number>(-1)
   const [users, setUsers] = useState<any[]>(usersData)
@@ -24,7 +24,7 @@ function UserSearch({ postsData, usersData }: UserSearchProps) {
     }
   }
 
-  const onUserSearch = (filterString: string) => {
+  const onUsersSearch = (filterString: string) => {
     if (usersData) {
       const filteredUsers = filterList(usersData, 'name', filterString)
       setUsers(filteredUsers)
@@ -38,12 +38,12 @@ function UserSearch({ postsData, usersData }: UserSearchProps) {
 
   return (
     <>
-      <h1 className="app-header">{UserSearchText.SelectedUserId} {userId >= 1 ? userId : UserSearchText.NoSelection}</h1>
+      <h1 className="app-header">{UsersSearchText.SelectedUserId} {userId >= 1 ? userId : UsersSearchText.NoSelection}</h1>
       <ListSearch
         listItems={users}
         displayField='name'
         onClick={onUserClicked}
-        onSearch={onUserSearch}
+        onSearch={onUsersSearch}
       />
       {userId >= 1 ?
         <ListSearch
@@ -52,11 +52,11 @@ function UserSearch({ postsData, usersData }: UserSearchProps) {
           onSearch={onPostSearch}
         /> :
         <div className="text-container">
-          <span className="default-text">{UserSearchText.SelectUser}</span>
+          <span className="default-text">{UsersSearchText.SelectUser}</span>
         </div>
       }
     </>
   );
 }
 
-export default UserSearch;
+export default UsersSearch;

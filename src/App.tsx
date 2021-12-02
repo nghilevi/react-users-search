@@ -2,7 +2,7 @@
 
 import { useData } from './hooks/useData';
 import { LoadingStatusText, Status } from './utils/constants';
-import UserSearch from './components/UserSearch';
+import UsersSearch from './components/UsersSearch';
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
       return <>{LoadingStatusText.Failure}</>
     }else{
       if(users) {
-        return <UserSearch postsData={posts} usersData={users} />
+        return <UsersSearch postsData={posts} usersData={users} />
       }else{
         return <>{LoadingStatusText.UsersLoadFail}</>
       }

@@ -18,7 +18,7 @@ enum LoadingStatusText {
     UsersLoadFail = 'Users loaded failed. Please try again'
 }
 
-enum UserSearchText {
+enum UsersSearchText {
     SelectedUserId = 'Selected user id:',
     SelectUser = 'Please select user',
     NoSelection = 'None'
@@ -30,4 +30,4 @@ enum ListSearchText {
 
 
 
-export { Api, Status, UserSearchText, ListSearchText, LoadingStatusText }
+export { Api, Status, UsersSearchText, ListSearchText, LoadingStatusText }
