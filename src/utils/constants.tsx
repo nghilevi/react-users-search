@@ -25,7 +25,7 @@ enum UserSearchText {
 }
 
 enum ListSearchText {
-    Empty = 'There is no items on the list'
+    Empty = 'There is no items on the list. This may be due to we can not load the data. Please try again later!'
 }
 
 
