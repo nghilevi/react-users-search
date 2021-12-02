@@ -1,6 +1,8 @@
 # User Search
 A very minimal user search application
 
+## Usage
+If users or posts failed to loa
 ## Implementation
 Below are some useful commands:
 

@@ -22,19 +22,30 @@ function ListSearch({ listItems, displayField, onClick, onSearch }: ListSearchPr
         }
     }
 
+    const renderList = () => {
+        if(listItems.length === 0){
+            return <>There is no items on the list</>
+        }else{
+            return <>
+                <input type="text" onInput={(e) => onInput(e)} />
+                <ul className="items-list">
+                    {
+                         
+                        listItems
+                            .map((item, key: number) =>
+                                <li key={key} onClick={(e) => { onItemClick(item) }}>
+                                    {item[displayField]}
+                                </li>
+                            )
+                    }
+                </ul> 
+            </>
+        }
+    }
+
     return (
         <div className="list-search">
-            <input type="text" onInput={(e) => onInput(e)} />
-            <ul className="items-list">
-                {
-                    listItems
-                        .map((item, key: number) =>
-                            <li key={key} onClick={(e) => { onItemClick(item) }}>
-                                {item[displayField]}
-                            </li>
-                        )
-                }
-            </ul>
+            { renderList() }
         </div>
     );
 }

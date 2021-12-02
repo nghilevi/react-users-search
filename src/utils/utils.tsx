@@ -1,7 +1,7 @@
 
 const filterList = (itemsList: any[], filteredKey: string, filteredValue: string) => {
-    let returnList = itemsList
-    if (filteredValue.length !== 0) {
+    let returnList = itemsList || []
+    if (filteredValue.length !== 0 && itemsList) {
         returnList = itemsList.filter((item) => {
             const itemStr = lowerString(item[filteredKey])
             return itemStr.search(lowerString(filteredValue)) > -1
