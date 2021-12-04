@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { ListSearchText } from '../../utils/constants'
+import { lowerString } from '../../utils/utils'
 import './ListSearch.scss'
 
 interface ListSearchProps {
@@ -8,13 +10,12 @@ interface ListSearchProps {
     onSearch?: Function
 }
 
-function ListSearch({ listItems, displayField, onClick, onSearch }: ListSearchProps) {
+function ListSearch({ listItems, displayField, onClick }: ListSearchProps) {
+
+    const [filterStr, setFilterStr] = useState<string>('')
 
     const onInput = (e: any) => {
-        const filterString = e.target.value
-        if (typeof onSearch === 'function') {
-            onSearch(filterString)
-        }
+        setFilterStr(e.target.value)
     }
 
     const onItemClick = (item: any) => {
@@ -34,6 +35,7 @@ function ListSearch({ listItems, displayField, onClick, onSearch }: ListSearchPr
                     {
 
                         listItems
+                            .filter((item) => lowerString(item[displayField]).indexOf(lowerString(filterStr)) > -1)
                             .map((item, key: number) =>
                                 <li key={key} onClick={(e) => { onItemClick(item) }}>
                                     {item[displayField]}
