@@ -3,15 +3,16 @@ import { filterList } from '../utils/utils';
 import './UsersSearch.scss'
 import ListSearch from './ListSearch/ListSearch';
 import { UsersSearchText } from '../utils/constants';
+import { Post, User } from '../utils/model';
 
 interface UsersSearchProps {
-  postsData: any[], usersData: any[]
+  postsData: Post[], usersData: User[]
 }
 
 function UsersSearch({ postsData, usersData }: UsersSearchProps) {
 
   const [userId, setUserId] = useState<number>(-1)
-  const [posts, setPosts] = useState<any[]>(postsData)
+  const [posts, setPosts] = useState<Post[]>(postsData)
 
   const onUserClicked = (item: any) => {
     const filteredPosts = filterList(postsData, 'userId', item.id)

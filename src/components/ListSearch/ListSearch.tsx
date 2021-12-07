@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { ListSearchText } from '../../utils/constants'
+import { Post, User } from '../../utils/model'
 import { lowerString } from '../../utils/utils'
 import './ListSearch.scss'
 
 interface ListSearchProps {
-    listItems: any[],
+    listItems: User[] | Post[],
     displayField: string,
-    onClick?: Function,
-    onSearch?: Function
+    onClick?: Function
 }
 
 function ListSearch({ listItems, displayField, onClick }: ListSearchProps) {
@@ -30,14 +30,14 @@ function ListSearch({ listItems, displayField, onClick }: ListSearchProps) {
             return <>{ListSearchText.Empty}</>
         } else {
             return <>
-                <input type="text" onInput={(e) => onInput(e)} />
+                <input data-testid='input' type="text" onInput={(e) => onInput(e)} />
                 <ul className="items-list">
                     {
 
                         listItems
                             .filter((item) => lowerString(item[displayField]).indexOf(lowerString(filterStr)) > -1)
                             .map((item, key: number) =>
-                                <li key={key} onClick={(e) => { onItemClick(item) }}>
+                                <li data-testid={key} key={key} onClick={(e) => { onItemClick(item) }}>
                                     {item[displayField]}
                                 </li>
                             )

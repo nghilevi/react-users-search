@@ -9,7 +9,6 @@ function App() {
   const { posts, users, loadingStatus } = useData()
 
   const renderApp = () => {
-    console.log('posts: ',posts,'users: ',users)
     if(loadingStatus === Status.Loading){
       return <>{LoadingStatusText.Loading}</>
     }else if(loadingStatus === Status.Failure){
