@@ -8,6 +8,7 @@ describe('useData', () => {
         it('should populate Users, Posts and loadingStatus to Success', async () => {
           const { result, waitForNextUpdate } = renderHook(() => useData());
           await waitForNextUpdate();
+          // do some assertions here
         })
 
     })
@@ -17,8 +18,9 @@ describe('useData', () => {
         it('should populate Users, Posts and loadingStatus to Failure', async () => {
           const { result, waitForNextUpdate } = renderHook(() => useData());
           await waitForNextUpdate();
+          // do some assertions here
         })
-        
+
     })
 
 })
