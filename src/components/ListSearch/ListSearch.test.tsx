@@ -1,5 +1,5 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { Users } from '../../test/mock.test';
+import { Users } from '../../../test/mock';
 import { ListSearchText } from '../../utils/constants';
 import { Post, User } from '../../utils/model';
 import ListSearch from './ListSearch';

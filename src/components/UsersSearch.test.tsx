@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react"
-import { Posts, Users } from "../test/mock.test"
+import { Posts, Users } from "../../test/mock"
 import { Post, User } from "../utils/model"
 import UsersSearch from "./UsersSearch"
 
