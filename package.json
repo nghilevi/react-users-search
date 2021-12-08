@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^7.0.2",
     "sass": "^1.44.0",
     "source-map-explorer": "^2.5.2"
   }
