@@ -43,35 +43,44 @@ describe('ListSearch', () => {
     })
 
     // EVENTS HANDLER
-    it('should trigger onClick handler with the right param', () => {
-        setup(listItems, displayField, onClick)
-        const listItem = screen.getByTestId('1')
-        fireEvent.click(listItem)
-        expect(onClick).toHaveBeenCalledWith(listItems[1])
-    })
-
-    it('should filter list based on input value - case 1', () => {
-        setup(listItems, displayField, onClick)
-        const input = screen.getByTestId('input')
-
-        fireEvent.input(input,{ target: { value: 'a' }})
-
-        expect(screen.getByText('Leanne Graham')).toBeInTheDocument();
-        expect(screen.getByText('Clementine Bauch')).toBeInTheDocument();
-        expect(screen.queryByText('Ervin Howell')).toBeNull();
+    describe('on click', () => {
+        
+        it('should trigger onClick handler with the right param', () => {
+            setup(listItems, displayField, onClick)
+            const listItem = screen.getByTestId('1')
+            fireEvent.click(listItem)
+            expect(onClick).toHaveBeenCalledWith(listItems[1])
+        })
 
     })
 
-    it('should filter list based on input value - case 2', () => {
-        setup(listItems, displayField, onClick)
-        const input = screen.getByTestId('input')
+    describe('on input', () => {
 
-        fireEvent.input(input,{ target: { value: 'Ervin' }})
+        it('should filter list as soon as user type something', () => {
+            setup(listItems, displayField, onClick)
+            const input = screen.getByTestId('input')
+    
+            fireEvent.input(input, { target: { value: 'a' } })
+    
+            expect(screen.getByText('Leanne Graham')).toBeInTheDocument();
+            expect(screen.getByText('Clementine Bauch')).toBeInTheDocument();
+            expect(screen.queryByText('Ervin Howell')).toBeNull();
+    
+        })
 
-        expect(screen.queryByText('Leanne Graham')).toBeNull();
-        expect(screen.queryByText('Clementine Bauch')).toBeNull();
-        expect(screen.queryByText('Ervin Howell')).toBeInTheDocument();
+        it('should filter list based on the whole input string value', () => {
+            setup(listItems, displayField, onClick)
+            const input = screen.getByTestId('input')
+    
+            fireEvent.input(input, { target: { value: 'Ervin' } })
+    
+            expect(screen.queryByText('Leanne Graham')).toBeNull();
+            expect(screen.queryByText('Clementine Bauch')).toBeNull();
+            expect(screen.queryByText('Ervin Howell')).toBeInTheDocument();
+    
+        })
 
     })
+
 
 })

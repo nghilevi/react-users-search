@@ -1,7 +1,7 @@
 
 const filterList = (itemsList: any[], filteredKey: string, filteredValue: string) => {
     let returnList = itemsList || []
-    if (filteredValue.length !== 0 && itemsList) {
+    if (filteredValue.length !== 0 && Array.isArray(itemsList)) {
         returnList = itemsList.filter((item) => {
             const itemStr = lowerString(item[filteredKey])
             return itemStr.search(lowerString(filteredValue)) > -1
@@ -9,7 +9,6 @@ const filterList = (itemsList: any[], filteredKey: string, filteredValue: string
     }
     return returnList
 }
-
 
 const lowerString = (str: any) => str.toString().toLowerCase()
 
