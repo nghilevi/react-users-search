@@ -1,6 +1,8 @@
 # User Search
 A very minimal user search application
 
+Last updated: 2021
+
 ## Usage notes
 If users are failed to load, the app can not be used.
 
